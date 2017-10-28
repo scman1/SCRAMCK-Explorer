@@ -9,7 +9,7 @@ def test1():
     [row for row in csvloader.con.execute('select rowid from wordlocation where wordid=1')]
 
 def test2():
-    matches=e.getmatchrows('data')
+    matches=e.getmatchrows('metadata catalogue')
     print matches
     #([(83, 1769), (101, 67), (101, 69), (101, 131)], [19504])
     rows = matches [0]
@@ -32,14 +32,14 @@ def test2():
         print wordlocs
         
 def test3():
-  terms=['functional programming','functional programming language', 'programming language', "agile software development"]
+  terms=['metadata catalogue','metadata', 'catalogue', "cataloguing", "data"]
   for term in terms:
       print term
       e.query(term)
 
 def test4():
-    crawler=searchengine.crawler('searchindex2.db')
-    crawler.calculatepagerank()
+    csvloader=searchengine.csvloader('reqindex.db')
+    csvloader.calculatepagerank()
 
 def build_nn():
     import nn
@@ -63,11 +63,11 @@ def test5():
 #print ("**********TEST 1***********")
 #test1()
 
-print ("**********TEST 2***********")
-test2()
+#print ("**********TEST 2***********")
+#test2()
 
-##print ("**********TEST 3***********")
-##test3()
+print ("**********TEST 3***********")
+test3()
 
 #print ("**********TEST 4***********")
 #test4()

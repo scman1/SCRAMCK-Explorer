@@ -108,9 +108,9 @@ class csvloader:
     return [s.lower( ) for s in splitter.split(text) if s!='']
 
   # Return true if this requirement is already indexed
-  def isindexed(self,url):
+  def isindexed(self,page):
     u=self.con.execute \
-      ("select rowid from requirementlist where requirementid='%s'" % url).fetchone( )
+      ("select rowid from requirementlist where requirementid='%s'" % page).fetchone( )
     if u!=None:
       # Check if it has actually been crawled
       v=self.con.execute(
@@ -134,17 +134,17 @@ class csvloader:
   # page rank is called only once
   # ideally after crawling
   def calculatepagerank(self,iterations=20):
-    # clear out the current PageRank tables
-    self.con.execute('drop table if exists pagerank')
-    self.con.execute('create table pagerank(urlid primary key,score)')
+    # clear out the current RequirementRank tables
+    self.con.execute('drop table if exists requirementrank')
+    self.con.execute('create table requirementrank(requirementid primary key,score)')
     
-    # initialize every url with a PageRank of 1
-    self.con.execute('insert into pagerank select rowid, 1.0 from urllist')
+    # initialize every requirement with a PageRank of 1
+    self.con.execute('insert into requirementrank select rowid, 1.0 from requirementlist')
     self.dbcommit( )
     
     for i in range(iterations):
       print "Iteration %d" % (i)
-      for (urlid,) in self.con.execute('select rowid from urllist'):
+      for (urlid,) in self.con.execute('select rowid from requirementlist'):
         pr=0.15
         
         # Loop through all the pages that link to this one
@@ -152,14 +152,14 @@ class csvloader:
         'select distinct fromid from link where toid=%d' % urlid):
           # Get the PageRank of the linker
           linkingpr=self.con.execute(
-          'select score from pagerank where urlid=%d' % linker).fetchone( )[0]
+          'select score from requirementrank where requirementid=%d' % linker).fetchone( )[0]
           
           # Get the total number of links from the linker
           linkingcount=self.con.execute(
           'select count(*) from link where fromid=%d' % linker).fetchone( )[0]
           pr+=0.85*(linkingpr/linkingcount)
         self.con.execute(
-        'update pagerank set score=%f where urlid=%d' % (pr,urlid))
+        'update requirementrank set score=%f where requirementid=%d' % (pr,urlid))
       self.dbcommit( )
   
 class searcher:
@@ -225,7 +225,7 @@ class searcher:
   
   def geturlname(self,id):
     return self.con.execute(
-      "select url from urllist where rowid=%d" % id).fetchone( )[0]
+      "select requirement from requirementlist where rowid=%d" % id).fetchone( )[0]
   
   def query(self,q):
     rows,wordids=self.getmatchrows(q)
@@ -285,7 +285,7 @@ class searcher:
   def linktextscore(self,rows,wordids):
     linkscores=dict([(row[0],0) for row in rows])
     for wordid in wordids:
-      cur=self.con.execute('select link.fromid,link.toid from linkwords,link where wordid=%d and linkwords.linkid=link.rowid' % wordid)
+      cur=self.con.execute('select link.fromid,link.toid from linkwords,link where wordid=%d and linkwords.requirementid=link.rowid' % wordid)
       for (fromid,toid) in cur:
         if toid in linkscores:
           pr=self.con.execute('select score from pagerank where urlid=%d' % fromid).fetchone( )[0]
