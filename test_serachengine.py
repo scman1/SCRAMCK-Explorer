@@ -2,17 +2,14 @@ import searchengine
 e=searchengine.searcher('reqindex.db')
 
 def test1():
-    crawler=searchengine.crawler('reqindex.db')
-    crawler.createindextables()
+    csvloader=searchengine.csvloader('reqindex.db')
+    csvloader.createindextables()
     sourcefile="requirementsenvri01.csv"
-    crawler.readcsv(sourcefile)
-    [row for row in crawler.con.execute('select rowid from wordlocation where wordid=1')]
+    csvloader.readcsv(sourcefile)
+    [row for row in csvloader.con.execute('select rowid from wordlocation where wordid=1')]
 
 def test2():
-    matches=e.getmatchrows('agile software development')
-    #matches=e.getmatchrows('functional programming')
-    #matches=e.getmatchrows('functional programming language')
-    #matches=e.getmatchrows('programming languages')
+    matches=e.getmatchrows('data')
     print matches
     #([(83, 1769), (101, 67), (101, 69), (101, 131)], [19504])
     rows = matches [0]
@@ -29,8 +26,8 @@ def test2():
     print docids
 
     for x in docids:    
-        print "This is the doc ID :" + str(x)
-        cursor.execute("SELECT url FROM urllist WHERE rowid=%s;" % str(x))
+        print "This is the requirement ID :" + str(x)
+        cursor.execute("SELECT requirement FROM requirementlist WHERE rowid=%s;" % str(x))
         wordlocs=cursor.fetchall()
         print wordlocs
         
@@ -63,11 +60,11 @@ def test5():
     x = mynet.getresult([wWorld,wBank],[uWorldBank,uRiver,uEarth])
     print x
 
-print ("**********TEST 1***********")
-test1()
+#print ("**********TEST 1***********")
+#test1()
 
-##print ("**********TEST 2***********")
-##test2()
+print ("**********TEST 2***********")
+test2()
 
 ##print ("**********TEST 3***********")
 ##test3()

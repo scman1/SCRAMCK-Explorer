@@ -7,8 +7,8 @@ from sqlite3 import dbapi2 as sqlite
 # Create a list of words to ignore
 ignorewords=set(['the','of','to','and','a','in','is','it'])
 
-class crawler:
-  # Initialize the crawler with the name of database
+class csvloader:
+  # Initialize the csv loader with the name of database
   # p. 75
   def __init__(self,dbname):
     self.con=sqlite.connect(dbname)
@@ -102,68 +102,6 @@ class crawler:
     else:
       return res[0]
       
-  # Starting with a list of pages, do a breadth
-  # first search to the given depth, indexing pages
-  # as we go
-  def crawl(self,pages,depth=2):
-    for i in range(depth):
-      newpages=set( )
-      for page in pages:
-        try:
-          c=urllib2.urlopen(page)
-        except:
-          print "Could not open %s" % page
-          continue
-        soup=BeautifulSoup(c.read( ))
-        self.addtoindex(page,soup)
-        
-        links=soup('a')
-        for link in links:
-          if ('href' in dict(link.attrs)):
-            url=urljoin(page,link['href'])
-            if url.find("'")!=-1: continue
-            url=url.split('#')[0] # remove location portion
-            if url[0:4]=='http' and not self.isindexed(url):
-              newpages.add(url)
-            linkText=self.gettextonly(link)
-            self.addlinkref(page,url,linkText)
-        self.dbcommit( )
-      pages=newpages
-
-    
-
-    
-  # Index an individual page
-  def addtoindex(self,url,soup):
-    if self.isindexed(url): return
-    print 'Indexing '+url
-    # Get the individual words
-    text=self.gettextonly(soup)
-    words=self.separatewords(text)
-    # Get the URL id
-    urlid=self.getentryid('urllist','url',url)
-    
-    # Link each word to this url
-    for i in range(len(words)):
-      word=words[i]
-      if word in ignorewords: continue
-      wordid=self.getentryid('wordlist','word',word)
-      self.con.execute("insert into wordlocation(urlid,wordid,location) \
-        values (%d,%d,%d)" % (urlid,wordid,i))
-
-  # Extract the text from an HTML page (no tags)
-  def gettextonly(self,soup):
-    v=soup.string
-    if v==None:
-      c=soup.contents
-      resulttext=''
-      for t in c:
-        subtext=self.gettextonly(t)
-        resulttext+=subtext+'\n'
-      return resulttext
-    else:
-      return v.strip( )
-
   # Separate the words by any non-whitespace character
   def separatewords(self,text):
     splitter=re.compile('\\W*')
@@ -191,10 +129,7 @@ class crawler:
     for word in words:
       if word in ignorewords: continue
       wordid=self.getentryid('wordlist','word',word)
-      self.con.execute("insert into linkwords(requirementid,wordid) values (%d,%d)" % (linkid,wordid))
-
-
-    
+      self.con.execute("insert into linkwords(requirementid,wordid) values (%d,%d)" % (linkid,wordid))  
 
   # page rank is called only once
   # ideally after crawling
@@ -237,7 +172,7 @@ class searcher:
 
   def getmatchrows(self,q):
     # Strings to build the query
-    fieldlist='w0.urlid'
+    fieldlist='w0.requirementid'
     tablelist=''
     clauselist=''
     wordids=[]
@@ -255,17 +190,18 @@ class searcher:
         if tablenumber>0:
           tablelist+=','
           clauselist+=' and '
-          clauselist+='w%d.urlid=w%d.urlid and ' % (tablenumber-1,tablenumber)
+          clauselist+='w%d.requirementid=w%d.requirementid and ' % (tablenumber-1,tablenumber)
         fieldlist+=',w%d.location' % tablenumber
         tablelist+='wordlocation w%d' % tablenumber
         clauselist+='w%d.wordid=%d' % (tablenumber,wordid)
         tablenumber+=1
         
     # Create the query from the separate parts
+    #print ('select %s from %s where %s' % (fieldlist,tablelist,clauselist))
     fullquery='select %s from %s where %s' % (fieldlist,tablelist,clauselist)
     cur=self.con.execute(fullquery)
     rows=[row for row in cur]
-
+    
     return rows,wordids
     
 
