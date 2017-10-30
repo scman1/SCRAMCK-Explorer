@@ -207,10 +207,31 @@ class searcher:
 
   def getscoredlist(self,rows,wordids):
     totalscores=dict([(row[0],0) for row in rows])
-    # This is where you'll later put the scoring functions
-    #weights=[(1.0,self.frequencyscore(rows))]
-    #weights=[(1.0,self.locationscore(rows))]
-    #weights=[(1.5,self.frequencyscore(rows)),
+    # Scoring functions
+    # Frequency: scores a requirement based on how many time the words
+    # appear on the requirement description
+    #
+    #   weights=[(1.0,self.frequencyscore(rows))]
+    #
+    # Location: scores a requirement based on how far from the start the
+    # words appear, assigning higher scores to those closser to the start
+    #
+    #   weights=[(1.0,self.locationscore(rows))]
+    #
+    # Distance: scores a requirement based on how far each other the words
+    # appear, assigining higher scores to those which are closer to each other
+    #
+    #   weights=[(2.5,self.distancescore(rows))]
+    #
+    #
+    # Inbound links: scores a requirement based on how many requirements point
+    # to it, a requirement with more inbound links is higher in the ranks
+    #
+    #   weights=[(2.5,self.inboundlinks(rows))]
+    #
+    #
+    # The scoring functions can be combined together to provide finer scoring
+    # weights=[(1.5,self.frequencyscore(rows)),
     #         (2.0,self.locationscore(rows)),
     #         (2.5,self.distancescore(rows)),
     #         (1.0,self.inboundlinkscore(rows))]

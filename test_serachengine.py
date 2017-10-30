@@ -37,6 +37,7 @@ def test3():
       print term
       e.query(term)
 
+
 def test4():
     csvloader=searchengine.csvloader('reqindex.db')
     csvloader.calculatepagerank()
