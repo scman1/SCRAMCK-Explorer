@@ -115,11 +115,11 @@ def test5():
 #print ("**********TEST 2***********")
 #test2()
 
-print ("**********TEST 3***********")
-test3()
+#print ("**********TEST 3***********")
+#test3()
 
-#print ("**********TEST 4***********")
-#test4()
+print ("**********TEST 4***********")
+test4()
 
 ##print ("**********Build Neural Network***********")
 ##build_nn()
