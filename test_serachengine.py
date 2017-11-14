@@ -89,7 +89,16 @@ def test4():
 #   Use requirement IDs as links to display results
 #   where appropriate, rewrite as MVC 
 
-
+def test5():
+  # This search has only one term and sends a search request for every separate word in the query
+  #ignorewords=set(['the','of','to','and','a','in','is','it'])  
+  terms=['the metadata catalogue']
+  terms.extend(terms[0].split(' '))
+  for term in terms:
+      print term
+      e.query(term)
+      
+      
 def build_nn():
     import nn
     mynet=nn.searchnet('nn.db')
@@ -100,7 +109,7 @@ def build_nn():
     for c in mynet.con.execute('select * from wordhidden'): print c
     for c in mynet.con.execute('select * from hiddenurl'): print c
 
-def test5():
+def test6():
     import nn
     #static word ids for testing
     wWorld,wRiver,wBank =101,102,103
@@ -119,7 +128,8 @@ def test5():
 #test3()
 
 print ("**********TEST 4***********")
-test4()
+#test4()
+test5()
 
 ##print ("**********Build Neural Network***********")
 ##build_nn()

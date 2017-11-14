@@ -39,6 +39,7 @@ Current status:
         
 Next Steps:
   SearchEngine:
+
     Generate neural network and test queries
     Add stemming to retrieve closely related terms
     Improve requirements class to facilitate access to requirements attributes
@@ -46,13 +47,15 @@ Next Steps:
     Include links to ENVRI RM in search results
 
   ENVRIplus requirements
+
     use them as queries to the current Requirements base to check how well we did
     use them to expand the CK spaces
       standardise them as EARS
       add them to the requirements base indexing
-   use their manual alignments to train the nn
+   ***use their manual alignments to train the nn. Really relevant. Also using the NN to map to OIL-E and RM
 
   UI
+
     Create django ui to submit queries
     Use requirement IDs as links to display results
     where appropriate, rewrite as MVC 

@@ -138,7 +138,7 @@ class csvloader:
     self.con.execute('drop table if exists requirementrank')
     self.con.execute('create table requirementrank(requirementid primary key,score)')
     
-    # initialize every requirement with a PageRank of 1
+    # initialize every requirement with a rank of 1
     self.con.execute('insert into requirementrank select rowid, 1.0 from requirementlist')
     self.dbcommit( )
     
@@ -150,7 +150,7 @@ class csvloader:
         # Loop through all the pages that link to this one
         for (linker,) in self.con.execute(
         'select distinct fromid from link where toid=%d' % urlid):
-          # Get the PageRank of the linker
+          # Get the Rank of the linker
           linkingpr=self.con.execute(
           'select score from requirementrank where requirementid=%d' % linker).fetchone( )[0]
           
@@ -176,11 +176,13 @@ class searcher:
     tablelist=''
     clauselist=''
     wordids=[]
+    rows=[]
     
     # Split the words by spaces
     words=q.split(' ')
     tablenumber=0
     for word in words:
+      if word in ignorewords: continue
       # Get the word ID
       wordrow=self.con.execute(
         "select rowid from wordlist where word='%s'" % word).fetchone( )
@@ -197,10 +199,10 @@ class searcher:
         tablenumber+=1
         
     # Create the query from the separate parts
-    #print ('select %s from %s where %s' % (fieldlist,tablelist,clauselist))
-    fullquery='select %s from %s where %s' % (fieldlist,tablelist,clauselist)
-    cur=self.con.execute(fullquery)
-    rows=[row for row in cur]
+    if clauselist != '':
+      fullquery='select %s from %s where %s' % (fieldlist,tablelist,clauselist)
+      cur=self.con.execute(fullquery)
+      rows=[row for row in cur]
     
     return rows,wordids
     
@@ -244,16 +246,21 @@ class searcher:
         totalscores[url]+=weight*scores[url]
     return totalscores
   
-  def geturlname(self,id):
+  def getrequirementname(self,id):
     return self.con.execute(
       "select requirement from requirementlist where rowid=%d" % id).fetchone( )[0]
+
+  def getrequirementidentifier(self,id):
+    return self.con.execute(
+      "select requirementid from requirementlist where rowid=%d" % id).fetchone( )[0]
   
   def query(self,q):
-    rows,wordids=self.getmatchrows(q)
-    scores=self.getscoredlist(rows,wordids)
-    rankedscores=sorted([(score,url) for (url,score) in scores.items( )],reverse=1)
-    for (score,urlid) in rankedscores[0:10]:
-      print '%f\t%s' % (score,self.geturlname(urlid))
+    rows, wordids = self.getmatchrows(q)
+    if (rows != []) & (wordids != []):
+      scores=self.getscoredlist(rows,wordids)
+      rankedscores=sorted([(score,url) for (url,score) in scores.items( )],reverse=1)
+      for (score,reqid) in rankedscores[0:10]:
+        print '%f\t%d\t%s\t%s' % (score,reqid,self.getrequirementidentifier(reqid),self.getrequirementname(reqid))
 
   def normalizescores(self,scores,smallIsBetter=0):
     vsmall=0.00001 # Avoid division by zero errors
@@ -298,9 +305,9 @@ class searcher:
     return self.normalizescores(inboundcount)
 
   def pagerankscore(self,rows):
-    pageranks=dict([(row[0],self.con.execute('select score from pagerank where urlid=%d' % row[0]).fetchone( )[0]) for row in rows])
-    maxrank=max(pageranks.values( ))
-    normalizedscores=dict([(u,float(l)/maxrank) for (u,l) in pageranks.items( )])
+    requirementranks=dict([(row[0],self.con.execute('select score from requirementrank where requirementid=%d' % row[0]).fetchone( )[0]) for row in rows])
+    maxrank=max(requirementranks.values( ))
+    normalizedscores=dict([(u,float(l)/maxrank) for (u,l) in requirementranks.items( )])
     return normalizedscores
 
   def linktextscore(self,rows,wordids):
@@ -309,7 +316,7 @@ class searcher:
       cur=self.con.execute('select link.fromid,link.toid from linkwords,link where wordid=%d and linkwords.requirementid=link.rowid' % wordid)
       for (fromid,toid) in cur:
         if toid in linkscores:
-          pr=self.con.execute('select score from pagerank where urlid=%d' % fromid).fetchone( )[0]
+          pr=self.con.execute('select score from requirementrank where requirementid=%d' % fromid).fetchone( )[0]
           linkscores[toid]+=pr
     maxscore=max(linkscores.values( ))
     # Added fix for some cases in which maxscore is 0
