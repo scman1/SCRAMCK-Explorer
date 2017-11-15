@@ -92,8 +92,8 @@ def test4():
 def test5():
   # This search has only one term and sends a search request for every separate word in the query
   #ignorewords=set(['the','of','to','and','a','in','is','it'])  
-  terms=['the metadata catalogue']
-  terms.extend(terms[0].split(' '))
+  terms=['the metadata catalogue', 'data harmonisation']
+  for term in terms: terms.extend(term.split(' ')) if ' ' in term else None
   for term in terms:
       print term
       e.query(term)
@@ -134,5 +134,5 @@ test5()
 ##print ("**********Build Neural Network***********")
 ##build_nn()
 
-##print ("**********TEST 5 NN***********")
+##print ("**********TEST 6 NN***********")
 ##test5()
