@@ -1,4 +1,5 @@
 import searchengine
+import datetime
 e=searchengine.searcher('reqindex.db')
 
 def test1():
@@ -92,12 +93,14 @@ def test4():
 def test5():
   # This search has only one term and sends a search request for every separate word in the query
   #ignorewords=set(['the','of','to','and','a','in','is','it'])  
-  terms=['the metadata catalogue', 'data harmonisation']
+  #terms=['the metadata catalogue,', 'data harmonisation','to improve their interoperability so as to make their data as accessible and understandable as possible to others,']
+  print(datetime.datetime.now().time())
+  terms=['to improve their interoperability so as to make their data as accessible and understandable as possible to others,']
   for term in terms: terms.extend(term.split(' ')) if ' ' in term else None
   for term in terms:
       print term
       e.query(term)
-      
+  print(datetime.datetime.now().time())    
       
 def build_nn():
     import nn

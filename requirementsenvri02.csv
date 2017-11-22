@@ -1,0 +1,182 @@
+﻿ID,Source,Description,SourceDocP,type,DLC,ENVRIReqID,Keyword,Interpretation,ENVRI concern,Action,Comment
+1,ACTRIS,"to improve their interoperability so as to make their data as accessible and understandable as possible to others, ",30,generic,Publishing,C.13,,,TRUE,,Should be already included in their documentation
+2,ACTRIS,"to link with others RIs, because there are many points in common (technologically and scientifically), and",30,generic,Publishing,C.13,Link,requires semantic harmonisation of data,TRUE,Add to minimal model,Integration/Interoperability is achieved through semantic harmonisation
+3,ACTRIS,"planning and managing the activity of sensors, ",30,generic,Acquisition,A.2,,,TRUE,,
+4,ACTRIS,"developing understanding of how instruments work in extreme conditions, and",30,generic,Acquisition,A.3,,,TRUE,,
+5,ACTRIS,improving the capabilities of small sensors,30,generic,Acquisition,A.6,,,TRUE,,
+6,ACTRIS,Semantic Interoperability,30,generic,Publishing,C.13,,requires semantic harmonisation of data,TRUE,Add to minimal model,Integration/Interoperability is achieved through semantic harmonisation
+7,AnaEE,Identification,30,generic,Curation,B.3,,,TRUE,,
+8,AnaEE,Citation,30,generic,Publishing,C.12,,,TRUE,refine,"refine the way in which citation is supported, provide citation standard, provide citation tracking methods"
+9,AnaEE,cataloguing,30,generic,Curation,B.4,,,TRUE,,
+10,AnaEE,it would be useful to synchronise their approach with other Ris,30,generic,Publishing,C.13,synchronise,Integration,TRUE,refine,already covered by RM
+11,AnaEE,the interoperability between models and data,30,generic,Publishing,C.13,Interoperability,requires semantic harmonisation of data,TRUE,Add to minimal model,Integration/Interoperability is achieved through semantic harmonisation
+12,AnaEE,the quality control of data produced by platforms,30,generic,Curation,B.1,,,TRUE,,
+13,AnaEE,the quality control of data produced by platforms,30,generic,Curation,B.2,,,TRUE,Add to minimal model?,"Verification complements QA, should be in the minimal model"
+14,EISCAT-3D,"ensure that the tools that they select are well documented and open, in order to minimise the risk of lock in to proprietary systems",31,generic,,,open standards,,,,
+15,EISCAT-3D,define workflows for data,31,generic,Curation,B.7,,,TRUE,add to minimal model,required for optimisation of data processing
+16,EISCAT-3D,define workflows for data,31,generic,Processing,D.6,,,TRUE,,
+17,EISCAT-3D,ensure interoperability with other RIs and instruments via virtual observatories,31,generic,Publishing,C.13,,requires semantic harmonisation of data,TRUE,Add to minimal model,Integration/Interoperability is achieved through semantic harmonisation
+18,ELIXIR,establish a closer collaboration with environmental Research Infrastructures (RIs) and improve their access to life science data,31,generic,Publishing,C.13,,Integration,TRUE,refine,already covered by RM
+19,ELIXIR,"enhanced interaction, a better insight into data structures and relevant data standards widely adopted across environmental RIs can facilitate an effective evaluation of areas of collaboration for development of new tools, services and training",31,generic,Publishing,C.13,,Integration,TRUE,refine,already covered by RM
+20,ELIXIR,"Ultimately, this can lead to better interoperability and discoverability of environmental and life science data by users across atmospheric, marine, solid earth and biosphere domains.",31,generic,Publishing,C.13,Interoperability,requires semantic harmonisation of data,TRUE,Add to minimal model,Integration/Interoperability is achieved through semantic harmonisation
+21,EMBRC,"Establishing collaborations with the environmental community, which would benefit from their environmental and ecological data.",32,generic,Publishing,C.13,,Integration,TRUE,refine,already covered by RM
+22,EMBRC,"Developing and learning about new standards and best practices in terms of standards. Developing new standards within INSPIRE [8], which can be used for other datasets.",32,generic,Curation,B.5,,,TRUE,,
+23,EMBRC,Developing and learning about new standards and best practices in terms of standards.,32,generic,Curation,B.5,,,TRUE,,
+24,EMBRC,"Developing new standards within INSPIRE [8], which can be used for other datasets.",32,generic,Curation,B.5,,,TRUE,,
+25,EMBRC,"Exploring new data workflows, which make use of marine biological and ecological data.",32,generic,Processing,D.6,,,TRUE,,
+26,EMBRC,"Exploring new data workflows, which make use of marine biological and ecological data.",32,generic,Processing,D.6,,,TRUE,,
+27,EMSO,better mechanisms for ensuring harmonisation of datasets across their distributed networks,32,generic,Publishing,C.13,Interoperability,requires semantic harmonisation of data,TRUE,Add to minimal model,Integration/Interoperability is achieved through semantic harmonisation
+28,EMSO,"Improved search is also desirable; currently expert knowledge is required, for example to be able to easily discover data stored in the MyOcean environment",32,generic,Publishing,C.14,search,,TRUE,refine,refien to distinguish discovery from access
+29,EMSO,collaborations with data processing infrastructures such as EGI for providing resources for infrastructure-side data processing.,32,generic,Processing,D.9,,,TRUE,extend-refiene,refine to allow external and internal processing models
+30,EMSO,collaborations with data processing infrastructures such as EGI for providing resources for infrastructure-side data processing.,32,generic,Processing,D.6,,,TRUE,refine,already covered by RM
+31,EPOS,improve the Interoperable AAAI system (federated & distributed),33,generic,Use,"E.1, E.2, E.3",Interoperability,Integration,TRUE,refine,already covered by RM
+32,EPOS,taking already existing software and make it available and scalable across communities.,33,generic,,,,software reuse,,,
+33,Euro-ARGO,to design and pioneer access to and use of a cloud infrastructure with services close to European research data to deliver data subscription services,33,generic,Use,E,Cloud,Integration,TRUE,,
+34,Euro-ARGO,The relevant data are pushed from the RI to the ENVRI cloud,33,generic,Curation,B.8,,,TRUE,,"Long term storage, extend to provide third party storage"
+35,Euro-ARGO,The data may be converted/transformed on the ENVRI computation grid,33,generic,Processing,D.9,convert transform,,TRUE,extend-refiene,refine to allow external and internal processing models
+36,Euro-ARGO,The cloud account of the user is updated regularly with the new data provided,33,generic,Use,"E.1, E.2",,,TRUE,refine,Already covered by RM
+37,Euro-ARGO,An accounting of data provision and data delivery is performed,33,generic,Use,E.3,,,TRUE,refine,Already covered by RM
+38,EuroGOOS,Learning about other European RIs and getting inspiration from them for deciding on the general objectives and services that they could provide at European level,34,generic,Processing,D.9,,consulting on integration,TRUE,,
+39,EuroGOOS,"From a technological perspective, getting recommendations about the design of common data system, including formats or data platforms and data treatments.",34,generic,Curation,"B.1, B.3, B.4, B.5, B.8",,,TRUE,,
+40,EuroGOOS,Getting inspiration from RIs about ways to distribute the data to end users using applications which are more focused in this respect.,34,generic,Publishing,C.11,,,TRUE,refine,
+41,EuroGOOS,Getting inspiration from RIs about ways to distribute the data to end users using applications which are more focused in this respect.,34,generic,Publishing,C.11,,,TRUE,,
+42,FixO3,better mechanisms for ensuring harmonisation of datasets across their distributed networks,34,generic,Publishing,C.13,,requires semantic harmonisation of data,TRUE,Add to minimal model,Integration/Interoperability is achieved through semantic harmonisation
+43,IAGOS,Improve data discovery,34,generic,Publishing,C.14,,,TRUE,refine,refien to distinguish discovery from access
+44,IAGOS,Metadata standardisation,34,generic,Curation,B.5,,,TRUE,,
+45,IAGOS,Metadata standardisation,34,generic,Curation,B.5,,,TRUE,,
+46,IAGOS,Interoperability,34,generic,Publishing,C.13,,requires semantic harmonisation of data,TRUE,Add to minimal model,Integration/Interoperability is achieved through semantic harmonisation
+47,IAGOS,Citation and DOI management,34,generic,Curation,B.3,,,TRUE,,
+48,IAGOS,Citation and DOI management,34,generic,Publishing,C.12,,,TRUE,refine,"refine the way in which citation is supported, provide citation standard, provide citation tracking methods"
+49,IAGOS,cataloguing,34,generic,Curation,B.4,,,TRUE,,
+50,IAGOS,provenance,34,generic,Processing,D.6,Provenance,,TRUE,,
+51,ICOS,Metadata curation (including “recipes” for cataloguing and storage),35,generic,Curation,B,,,TRUE,,
+52,ICOS,Data object identification and citation,35,generic,Publishing,C.12,,,TRUE,refine,"refine the way in which citation is supported, provide citation standard, provide citation tracking methods"
+53,ICOS,Data object identification and citation,35,generic,Curation,B.3,,,TRUE,,
+54,ICOS,Collection and handling of provenance information,35,generic,Processing,D.6,Provenance,,TRUE,,
+55,INTERACT,broad European standards exposed to NordGIS,35,generic,Curation,B.5,European standards,,TRUE,refine,already covered by RM
+56,INTERACT,homogenisation with other infrastructures,35,generic,Publishing,C.13,Homogeneisation,Integration,TRUE,refine,already covered by RM
+57,IS-ENES2,better understanding of interdisciplinary use cases and end-user requirements,35,generic,Publishing,C.13,interdisciplinary use cases,Integration,TRUE,refine,already covered by RM
+58,IS-ENES2,better understanding of interdisciplinary use cases and end-user requirements,35,generic,Use,E,end user,,TRUE,,needs to be clarified cannot be addressed
+59,LTER,harmonised data documentation,36,generic,Publishing,C.13,,requires semantic harmonisation of data,TRUE,Add to minimal model,Integration/Interoperability is achieved through semantic harmonisation
+60,LTER,real-time availability of data ,36,generic,Acquisition,"A.8, A.11",,,TRUE,,
+61,LTER,harmonisation of data and data flows,36,generic,Publishing,C.13,,requires semantic harmonisation of data,TRUE,Add to minimal model,Integration/Interoperability is achieved through semantic harmonisation
+62,LTER,developing a Data Integration Portal ,36,generic,Use,E,,,TRUE,,needs to be clarified cannot be addressed
+63,LTER,integration of common data repositories into their workflow system (including metadata documentation with LTER Europe DEIMS,36,generic,Processing,D.6,,,TRUE,,
+64,LTER,integration of common data repositories into their workflow system (including metadata documentation with LTER Europe DEIMS,36,generic,Curation,B.7,,,TRUE,add to minimal model,required for optimisation of data processing
+65,SeaDataNet,"enhance the cross-community expertise on observation networks, requirements support and data management expertise by participating in ENVRIplus",36,generic,,,expertise,consulting on integration,,,
+66,SeaDataNet,interoperability services and standards,36,generic,Publishing,C.13,Interoperability,integration,TRUE,refine,already covered by RM
+67,SIOS,how observational networks are to be designed and implemented,36,generic,Acquisition,A.6,,,TRUE,Revise,RM does not support describing how sensor networks or observation networks are organised
+68,SIOS,"lay the foundation for better-coordinated services for the international research community with respect to access to infrastructure, data and knowledge management, sharing of data, logistics, training and education",36,generic,Processing,D.9,integration,,TRUE,,
+69,ACTRIS,Data visualisation,44,"Optimisation plans, issues, challenges",Publishing,C.15,,,TRUE,"Add to minimal model, refine?",
+70,ACTRIS,Data visualisation,44,"Optimisation plans, issues, challenges",Processing,D.7,,,TRUE,,
+71,ACTRIS,Data visualisation,44,"Optimisation plans, issues, challenges",Use,E.6,,,TRUE,,
+72,ACTRIS,Data provision,44,"Optimisation plans, issues, challenges",Publishing,C.11,,,TRUE,refine,
+73,ACTRIS,Interoperability between data centre nodes,44,"Optimisation plans, issues, challenges",Publishing,C.13,Interoperability,requires semantic harmonisation of data,TRUE,Add to minimal model,Integration/Interoperability is achieved through semantic harmonisation
+74,EISCAT-3D,Data access with searching and visualisation,31,"Optimisation plans, issues, challenges",Publishing,C.15,,access visualisation,TRUE,"Add to minimal model, refine?",
+75,EISCAT-3D,Data access with searching and visualisation,31,"Optimisation plans, issues, challenges",Publishing,C.14,,data searching,TRUE,refine,refien to distinguish discovery from access
+76,EMBRC,Harmonisation of data between labs,32,"Optimisation plans, issues, challenges",Publishing,C.13,,requires semantic harmonisation of data,TRUE,Add to minimal model,Integration/Interoperability is achieved through semantic harmonisation
+77,EMBRC,Backup system,32,"Optimisation plans, issues, challenges",Curation,B.8,Backup,Storage,TRUE,,already covered by RM
+78,EMBRC,Maintenance of software and their integration into a single platform.,32,"Optimisation plans, issues, challenges",,,,consulting on development,,,
+79,EuroGOOS,Data assimilation,44,"Optimisation plans, issues, challenges",Processing,D.1,,,TRUE,,
+80,FixO3,Harmonise data curation,44,"Optimisation plans, issues, challenges",Curation,B,,,TRUE,,
+81,FixO3,harmonise data access,44,"Optimisation plans, issues, challenges",Publishing,C.13,,,TRUE,,
+82,IAGOS,Data processing,44,"Optimisation plans, issues, challenges",Processing,D.9,,,TRUE,extend-refiene,refine to allow external and internal processing models
+83,ICOS,Data and Metadata storage.,44,"Optimisation plans, issues, challenges",Curation,B.8,,,TRUE,,"Long term storage, extend to provide third party storage"
+84,INTERACT,handling actual data concerning 76 active field-stations.,44,"Optimisation plans, issues, challenges",Publishing,C.13,,Integration,TRUE,refine,already covered by RM
+85,IS-ENES2,Share best practices as fast as new nodes integrate the RI federation. ,45,"Optimisation plans, issues, challenges",Publishing,C.13,,Integration,TRUE,refine,already covered by RM
+86,IS-ENES2,Data near processing. ,45,"Optimisation plans, issues, challenges",Processing,D.9,,,TRUE,extend-refiene,refine to allow external and internal processing models
+87,IS-ENES2,"Handling volume and distribution of data: Replication, Versioning. ",45,"Optimisation plans, issues, challenges",Curation,B,,,TRUE,,
+88,IS-ENES2,"Providing related information for data products (provenance, user comments, usage, detailed scientific descriptions needed for usage). ",45,"Optimisation plans, issues, challenges",Publishing,C.11,,Provenance,TRUE,refine/expand,Expand RM to track provenance
+89,LTER,access to distributed data services,45,"Optimisation plans, issues, challenges",Processing,D.9,,,TRUE,extend-refiene,refine to allow external and internal processing models
+90,SeaDataNet,Data policy to involve data providers in the publication of their own datasets,45,"Optimisation plans, issues, challenges",Publishing,C.11,,,TRUE,refine,
+91,AnaEE,Homogenous approach on Identification and citation and on cataloguing across RIs,45,Expectations,Curation,B.3,,,TRUE,,
+92,AnaEE,Homogenous approach on Identification and citation and on cataloguing across RIs,45,Expectations,Publishing,C.12,,,TRUE,refine,"refine the way in which citation is supported, provide citation standard, provide citation tracking methods"
+93,EMSO,Improving search is also desirable,46,Expectations,Publishing,C.14,,,TRUE,refine,refien to distinguish discovery from access
+94,FixO3,Improved search is also desirable,45,Expectations,Publishing,C.14,,,TRUE,refine,refien to distinguish discovery from access
+95,FixO3,Heterogeneous data formats to enhance cross-community collaboration,45,Expectations,Publishing,C.13,,,TRUE,refine,already covered by RM
+96,FixO3,Harmonisation of datasets across distributed networks,45,expectations,Publishing,C.13,,requires semantic harmonisation of data,TRUE,Add to minimal model,Integration/Interoperability is achieved through semantic harmonisation
+97,INTERACT,Recommendations about how to turn primary data into data products need to be adopted.,45,Expectations,Curation,B.5,,,TRUE,,
+98,INTERACT,Recommendations about how to turn primary data into data products need to be adopted.,45,Expectations,Curation,B.5,,,TRUE,refine,already covered by the RM
+99,INTERACT,Metadata and data standardisation at all levels. ,45,Expectations,Curation,B.5,standardisation,standards,TRUE,refine,already covered by RM
+100,LTER,Support on data curation,45,Expectations,Curation,B,,,TRUE,,
+101,LTER,data object identification especially on the aspect of dynamic data series and identification of results from data queries (e.g. data services),45,Expectations,Curation,B.3,,,TRUE,,
+102,LTER,"technical support on optimisation of data flows (e.g. integrating of a data repository, data integration portal)",45,Expectations,Processing,D.6,,,TRUE,,
+103,LTER,"technical support on optimisation of data annotation (e.g. integrating of a data repository, data integration portal)",45,Expectations,Publishing,C.3,,,TRUE,,required to support canonical catalogue
+104,"ACTRIS, AnaEE, EISCAT-3D, EMBRC, EMSO, EPOS, Euro-ARGO, EuroGOOS, IAGOS, ICOS, IS-ENES2, LTER, SeaDataNet, and SIOS",having as much of the data identification and citation automated,46,Identification and citation,Curation,B.3,,,TRUE,,
+105,"ACTRIS, AnaEE, EISCAT-3D, EMBRC, EMSO, EPOS, Euro-ARGO, EuroGOOS, IAGOS, ICOS, IS-ENES2, LTER, SeaDataNet, and SIOS",having as much of the data identification and citation automated,46,Identification and citation,Publishing,C.12,,,TRUE,refine,"refine the way in which citation is supported, provide citation standard, provide citation tracking methods"
+106,"ACTRIS, AnaEE, EISCAT-3D, EMBRC, EMSO, EPOS, Euro-ARGO, EuroGOOS, IAGOS, ICOS, IS-ENES2, LTER, SeaDataNet, and SIOS",Support identification of data objects stored as files (using file names as identifiers),46,Identification and citation,Curation,B.3,,,TRUE,,
+107,"ACTRIS, AnaEE, EISCAT-3D, EMBRC, EMSO, EPOS, Euro-ARGO, EuroGOOS, IAGOS, ICOS, IS-ENES2, LTER, SeaDataNet, and SIOS","identifier systems used are based on handles: DOIs from DataCite most common, followed by ePIC PIDs ",46,Identification and citation,Curation,B.3,,,TRUE,,
+108,"ACTRIS, AnaEE, EISCAT-3D, EMBRC, EMSO, EPOS, Euro-ARGO, EuroGOOS, IAGOS, ICOS, IS-ENES2, LTER, SeaDataNet, and SIOS","necessary to allow unambiguous references to be made to specified subsets of datasets, preferably in the citation",46,Identification and citation,Publishing,C.12,,,TRUE,refine,"refine the way in which citation is supported, provide citation standard, provide citation tracking methods"
+109,"ACTRIS, AnaEE, EISCAT-3D, EMBRC, EMSO, EPOS, Euro-ARGO, EuroGOOS, IAGOS, ICOS, IS-ENES2, LTER, SeaDataNet, and SIOS",Ensuring that credit for producing (and to a lesser extent curating) scientific data sets is “properly assigned” ,47,Identification and citation,Publishing,C.12,,,TRUE,refine,"refine the way in which citation is supported, provide citation standard, provide citation tracking methods"
+110,"ACTRIS, AnaEE, EISCAT-3D, EMBRC, EMSO, EPOS, Euro-ARGO, EuroGOOS, IAGOS, ICOS, IS-ENES2, LTER, SeaDataNet, and SIOS","have strategies for collecting usage statistics for their data products, i.e., through bibliometric searches (quasi-automated or manual) from scientific literature, but thus often rely on publishers indexing also data object DOIs",47,Identification and citation,Publishing,C.12,,,TRUE,refine,"refine the way in which citation is supported, provide citation standard, provide citation tracking methods"
+111,"ACTRIS, AnaEE, EISCAT-3D, EMBRC, EMSO, EPOS, Euro-ARGO, EuroGOOS, IAGOS, ICOS, IS-ENES2, LTER, SeaDataNet, and SIOS",use of persistent and unique identifiers for both data and metadata objects throughout the entire data lifecycle,47,Identification and citation,Curation,B.3,,,TRUE,,
+112,"ACTRIS, AnaEE, EISCAT-3D, EMBRC, EMSO, EPOS, Euro-ARGO, EuroGOOS, IAGOS, ICOS, IS-ENES2, LTER, SeaDataNet, and SIOS",standards of data citation supporting adding specific sub-setting information to a basic (DOI-based) reference.,47,Identification and citation,Publishing,C.12,,,TRUE,refine,"refine the way in which citation is supported, provide citation standard, provide citation tracking methods"
+113,,"the requirements for curation were not made explicit, for example, none of the RIs (who responded) has appropriate metadata and processes for curation",48,Curation,Curation,B,,,FALSE,Ignore,
+114,,"curation often underpins validation of the quality of scientific decisions and since environmental sciences observe phenomena that do not repeat in exactly the same form, the profile of curation needs raising",48,Curation,Curation,B,,,FALSE,Ignore,
+115,,"Catalogues of observation systems and lab equipment, if possible using a standardised approach (OGC/SWE, SSN)",48,Cataloguing,Curation,B.4,,,TRUE,extend-refiene,Extend to include cataloguing of more data objects and products
+116,,Catalogues of physical samples,49,Cataloguing,Curation,B.4,,,TRUE,extend-refiene,Extend to include cataloguing of more data objects and products
+117,,"Catalogues of data products and/or results. Currently done by existing systems (EBAS, EARLINET, CLOUDNET, CKAN, MAdrigal, DEIMS). Widely standardised (ISO/IEC 191XX)",49,Cataloguing,Curation,B.4,,,TRUE,extend-refiene,Extend to include cataloguing of more data objects and products
+118,,"Catalogues of publications, Few Ris manage the publications on their own. Links for provenance between publications and datasets are required",49,Cataloguing,Curation,B.4,,,TRUE,extend-refiene,Extend to include cataloguing of more data objects and products
+119,,"Reference catalogues: for objects used by RIs and researchers such as:  people and organisations, publications, research objects, features of interest",49,Cataloguing,Curation,B.4,,,TRUE,extend-refiene,Extend to include cataloguing of more data objects and products
+120,,"Federated catalogues: for data objects produced by research activities such as:  data products and results, observation systems and lab equipment, physical samples, data processing procedures, systems and software, metadata",49,Cataloguing,Curation,B.4,,,TRUE,extend-refiene,Extend to include cataloguing of more data objects and products
+121,,"Processing catalogues: to record activities, usage, events. These catalogues support provenance and management of the RI",49,Cataloguing,Curation,B.4,,,TRUE,extend-refiene,Extend to include cataloguing of more data objects and products
+122,,"Processing input data taking into account: dataset(s) typologies, volume, velocity, variety/heterogeneity, and access methods",50,Processing,Acquisition,A,,,TRUE,Revise,"Partially addressed, but could be refined"
+123,,allow scientists to easily plug-in and experiment with their algorithms and methods without bothering with the computing platform,50,Processing,Processing,D.9,,,TRUE,extend-refiene,refine to allow external and internal processing models
+124,,allow service managers to configure the platform to exploit diverse computing infrastructures,50,Processing,Processing,D.9,,,TRUE,extend-refiene,refine to allow external and internal processing models
+125,,allow third-party service providers to programmatically invoke the analytics methods,50,Processing,Use,E,,,TRUE,,Functionalities are most likely provided as services but this does not come across clearly
+126,,support scientists executing existing analytic tasks eventually customising/tuning some parameters without requiring them to install any technology or software,50,Processing,Use,E,,,TRUE,,intefaces for customising services should be provided
+127,,"need to make output data available in a systematic way, including information on the entire process leading to the resulting data",50,Processing,Publishing,C.11,,Provenance,TRUE,refine/expand,Expand RM to track provenance
+128,,output resulting from a data processing task should be “published” to be compliant with Open Science practices,50,Processing,Publishing,C.11,,Provenance,TRUE,refine/expand,Expand RM to track provenance
+129,,offer an easy to use approach for having access to the datasets that result from a data processing task,50,Processing,Publishing,C.11,,,TRUE,,
+130,,"automatically supply the entire set of metadata characterising the task, e.g., through the provenance framework",50,Processing,Curation,B.4,,,TRUE,extend-refiene,Extend to include cataloguing of more data objects and products
+131,,"provide the appropriate protection for cases where aspects of the information are sensitive, could jeopardise privacy, or have applications that require a period of confidentiality.",50,Processing,Publishing,C.11,,,TRUE,,
+132,,"integration of tools and statistical methods, and their mapping onto platforms, should be supported in an appropriate virtual research environment or science gateway",51,Processing,Use,E,,,TRUE,,"interfaces for interacting with services are already described as e-laboratories, but they do not come across like that"
+133,,knowing the evolutionary history of data – and at very different time scales – is important for any use and reuse of data,52,Provenance,Processing,D.6,,,TRUE,refine/expand,Expand RM to track provenance
+134,,Inter alia provenance to avoid undetected duplication (production or storage) of datasets.,52,Provenance,Processing,D.6,,,TRUE,refine/expand,Expand RM to track provenance
+135,,provenance data is essential and and requires using a provenance recording system,53,Provenance,Processing,D.6,,,TRUE,refine/expand,Expand RM to track provenance
+136,,some provenance information about observation and measurement methods used is embeded within metadata but a real tracking tool still needs to be implemented,53,Provenance,Processing,D.6,,,TRUE,refine/expand,Expand RM to track provenance
+137,,"Provenance system should enable following the data ‘back in time’ and see all the steps that happened from raw data collection, via quality control and aggregation to a useful product",53,Provenance,Processing,D.6,,,TRUE,refine/expand,Expand RM to track provenance
+138,,"Provenance system should enable tracking the usage of the data, including information about users in order to understand the relevance of the data and how to improve their services",53,Provenance,Processing,D.6,,,TRUE,refine/expand,Expand RM to track provenance
+139,,"Controlled vocabularies used for the descriptions of the steps for data provenance are required, some RIs already use research specific reference tables and thesauri like EnvThes and SeaDataNet common vocabularies",53,Provenance,Processing,D.6,,,TRUE,refine/expand,Expand RM to track provenance
+140,,Drawing an explicit line between metadata describing the ‘dataset’ and provenance information,53,Provenance,Processing,D.6,,,TRUE,refine/expand,Expand RM to track provenance
+141,,support on automated tracking solutions and or provenance management APIs to be applied in the specific e-science environments,53,Provenance,Processing,D.6,,,TRUE,refine/expand,Expand RM to track provenance
+142,,good overview of the existing vocabularies and ontologies that are ready to use or that need to be slightly adapted for specific purposes,53,Provenance,Processing,D.6,,,TRUE,refine/expand,Expand RM to track provenance
+143,,"strong relationship between the task of identification of data and the provenance task, there must be a direct link between the data and its lineage that can be followed by the interested user",53,Provenance,Processing,D.6,,,TRUE,refine/expand,Expand RM to track provenance
+144,,"defining a minimum information set that has to be tracked, finding a conceptual model for provenance which conforms to the needed information, maps existing models to the common model and finds a repository to store the provenance information",53,Provenance,Processing,D.6,,,TRUE,refine/expand,Expand RM to track provenance
+145,,"location of data such that they can be easily identified, retrieved and analysed",54,Optimisation,Publishing,C.11,,,TRUE,,
+146,,perform analysis on data without substantial additional preparation,54,Optimisation,Processing,D.9,,,TRUE,extend-refiene,refine to allow external and internal processing models
+147,,Take into account the overhead in time and effort required to prepare the data for processing,55,Optimisation,Processing,D.9,,,TRUE,extend-refiene,refine to allow external and internal processing models
+148,,"data staging, whereby data is placed and prepared for processing on some computational service ",54,Optimisation,Processing,D.9,,,TRUE,extend-refiene,refine to allow external and internal processing models
+149,,"Given constraints on compute capacity, network bandwidth, and quality of service, the most important aspect to optimise is where should the data be processed",54,Optimisation,Processing,D.9,,,TRUE,extend-refiene,refine to allow external and internal processing models
+150,,"outputs of data processing need to be considered if the curation of results is within the scope of a given research infrastructure, and fold back into the domain of data curation",54,Optimisation,Processing,D.9,,restarting the DLC,TRUE,extend-refiene,refine to allow external and internal processing models
+151,,optimisation should be based on provenance because it allows predicting how data will be used and what infrastructure elements should provide access and processing capability over those data,55,Optimisation,Processing,D.9,,,TRUE,extend-refiene,refine to allow external and internal processing models
+152,,optimise the management of provenance data streams during data processing.,56,Optimisation,Curation,B.4,,,TRUE,extend-refiene,Extend to include cataloguing of more data objects and products
+153,,Preserving the link between data and their provenance metadata is important when metadata are not packaged with their corresponding datasets,56,Optimisation,Curation,B.4,,,TRUE,extend-refiene,Extend to include cataloguing of more data objects and products
+154,,"Optimising the acquisition of data from data providers is required to maximise the range and timeliness of datasets made available to researchers and to increase data security (by ensuring that it is prepared for curatation with minimal delay, reducing the risk of data corruption or loss)",56,Optimisation,Acquisition,A,,,TRUE,Revise,"Partially addressed, but could be refined"
+155,,Optimise accessibility and availability of research assets (but not exclusively data). ,56,Optimisation,Publishing,C.11,,,TRUE,,
+156,,High availability and long-term durability requires effective replication procedures across multiple sites.,56,Optimisation,Curation,B.9,,,TRUE,Include in minimal model,
+157,,Minimise the cost of synchronising replicas,56,Optimisation,Curation,B.10,,,TRUE,Include in minimal model,
+158,,anticipate user demand to minimise network congestion,56,Optimisation,Use,E,,,TRUE,,"interfaces for interacting with services are already described as e-laboratories, but they do not come across like that"
+159,,optimisation of querying and data retrieval is of concern,56,Optimisation,Use,E,,,TRUE,,"interfaces for interacting with services are already described as e-laboratories, but they do not come across like that"
+160,,ensure availability of identification services ,56,Optimisation,Curation,B.3,,,TRUE,,
+161,,direct users to the best replicas of a given dataset that ensures effective use of the underlying network,56,Optimisation,Use,E,,,TRUE,,"interfaces for interacting with services are already described as e-laboratories, but they do not come across like that"
+162,,Allow the investigator to configure the system based on their own experience and knowledge of the infrastructure,56,Optimisation,Processing,D.9,,"calibration, use, workflow processing, etc.",TRUE,extend-refiene,refine to allow external and internal processing models
+163,,Allow the provider of a service or process to embed their own understanding in how the infrastructure operates,56,Optimisation,Processing,D.9,,"calibration, use, workflow processing, etc.",TRUE,extend-refiene,refine to allow external and internal processing models
+164,,Allow encoding experts' knowledge within the system so it can then be accessed and applied automatically within the infrastructure.,56,Optimisation,Processing,D.9,,"calibration, use, workflow processing, etc.",TRUE,extend-refiene,refine to allow external and internal processing models
+165,,to provide an abstraction layer over a number of individual research infrastructures and a number of shared services that they interact with,56,Optimisation,Processing,D.9,,,TRUE,extend-refiene,refine to allow external and internal processing models
+166,,every level of the system needs to be well enough described to support automated management and optimisation,56,Optimisation,,,,,,,
+167,,improved usability and easier to understand systems,56,Optimisation,Use,E,,,TRUE,,"interfaces for interacting with services are already described as e-laboratories, but they do not come across like that"
+168,,Data portals provide (a single point of) access to the system and data products both for humans and machines (via APIs),57,Community Support,Use,E,,,TRUE,,"interfaces for interacting with services are already described as e-laboratories, but they do not come across like that"
+169,,"Access Control: AAI (Authentication and Authorisation Infrastructure) management is requested by many RIs. For example, IS-ENES2 currently uses OAuth2, OpenID, SAML and X.509 for AAI management.",57,Community Support,Use,"E.1, E.2",,,TRUE,,
+170,,Discovery of services and data facilities: metadata-based discovery mechanisms are commonly used,57,Community Support,Use,E,,,TRUE,,Functionalities are most likely provided as services but this does not come across clearly
+171,,Accounting: tracking of user activities,57,Community Support,Use,E.3,,,TRUE,refine,refine/extend to be clear about level of support for user groups and access rights
+172,,"use of a wiki to organise community information, and as a blackboard for collaborative work for community members",58,Community Support,Use,E,,,FALSE,,
+173,,"facilitate communication to and from groups of community members using mailing lists, twitter & forums ",58,Community Support,Use,E,,,FALSE,,
+174,,Provide shared spaces (files and image repositories ) where members and stakeholders can upload/download and exchange files,58,Community Support,Use,"E.1, E.2, E.3",,,TRUE,refine,refine/extend to be clear about level of support for user groups and access rights
+175,,Shared calendars keep track and disseminate relevant events for community members,58,Community Support,Use,E,,,FALSE,,
+176,,"Tools to organise meetings, events and conferences ",58,Community Support,Use,E,,,FALSE,,
+177,,Website to disseminate community relevant information to all stakeholders,58,Community Support,Use,E,,,FALSE,,
+178,,Communication with all stakeholders (internal and external) supported through teleconferencing,58,Community Support,Use,E,,,FALSE,,
+179,,"Helpdesk & Technical support for the use of complex data products which often require experience of, and detailed knowledge about, the underlying methods and science to be used in an optimal way",58,Community Support,Use,E,,,FALSE,,
+180,,"RIs need robust, fast-reacting systems, which offer security and privacy. Moreover, they need good performance for high data volumes",59,Community Support,Use,"E.1, E.2, E.3",,Overlaps optimisation,TRUE,refine,refine/extend to be clear about level of support for user groups and access rights
+181,,Enforcement of data policy and licensing constraints that restrict access to a certain group of users,59,Community Support,Use,"E.1, E.2, E.3",,,TRUE,refine,refine/extend to be clear about level of support for user groups and access rights
