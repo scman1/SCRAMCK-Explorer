@@ -103,28 +103,53 @@ class searcher:
       "select requirementid from requirementlist where rowid=%d" % id).fetchone( )[0]
 
   # complex query
-  # Extra step added to retur results which match any of the words in query string (or)
+  # Extra step added to return results which match any of the words in query string (or)
   def query(self, querystring):
-    terms=[querystring]
+    # try exact match first
+    scores = self.simplequery(querystring)
+     
     # extend the search to individual terms
-    for term in terms: terms.extend(term.split(' ')) if ' ' in term else None
-    # query each term in the list, including the original query string 
-    for term in terms:
-      rankedscores = self.simplequery(term)
-      if rankedscores != None:
-        for (score,reqid) in rankedscores[0:10]:
-          print '%f\t%d\t%s\t%s' % (score,reqid,self.getrequirementidentifier(reqid),self.getrequirementname(reqid))
+    termscores = {}
+    if ' ' in querystring:    
+      terms=querystring.split(' ')
+      
+      # query each term in the list of individual words    
+      for term in terms:
+        wordscores = self.simplequery(term)
+        if wordscores != None:
+          # add word scores to term scores
+          # but if duplicated keys keep max only
+          for (reqid,score) in wordscores.items():
+            if reqid in termscores:
+              if termscores[reqid]<wordscores[reqid]:
+                termscores[reqid]=wordscores[reqid]
+            else:
+              termscores.update({reqid:score})
+          
+    if termscores != None:
+      if scores is None:
+        scores=termscores
+      else:
+        # add word scores to full match scores
+        # but if duplicated keys keep full match scores only
+        for (reqid,score) in termscores.items():
+          if not reqid in scores:
+            scores.update({reqid:score})
+          
+    if scores != None: 
+      print "results for term %s: %i"% (querystring, len(scores))
+      rankedscores=sorted([(score,reqid) for (reqid,score) in scores.items( )],reverse=1)
+      for (score,reqid) in rankedscores[0:10]:
+        print '%f\t%d\t%s\t%s' % (score,reqid,self.getrequirementidentifier(reqid),self.getrequirementname(reqid))
+
       
   # simple query 
   def simplequery(self,q):
     rows, wordids = self.getmatchrows(q)
     if (rows != []) & (wordids != []):
       scores=self.getscoredlist(rows,wordids)
-      rankedscores=sorted([(score,reqid) for (reqid,score) in scores.items( )],reverse=1)
-      return rankedscores
-      #for (score,reqid) in rankedscores[0:10]:
-      #  print '%f\t%d\t%s\t%s' % (score,reqid,self.getrequirementidentifier(reqid),self.getrequirementname(reqid))
-
+      return scores
+  
   def normalizescores(self,scores,smallIsBetter=0):
     vsmall=0.00001 # Avoid division by zero errors
     if smallIsBetter:
