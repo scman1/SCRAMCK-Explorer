@@ -102,14 +102,28 @@ class searcher:
     return self.con.execute(
       "select requirementid from requirementlist where rowid=%d" % id).fetchone( )[0]
 
+  # complex query
+  # Extra step added to retur results which match any of the words in query string (or)
+  def query(self, querystring):
+    terms=[querystring]
+    # extend the search to individual terms
+    for term in terms: terms.extend(term.split(' ')) if ' ' in term else None
+    # query each term in the list, including the original query string 
+    for term in terms:
+      rankedscores = self.simplequery(term)
+      if rankedscores != None:
+        for (score,reqid) in rankedscores[0:10]:
+          print '%f\t%d\t%s\t%s' % (score,reqid,self.getrequirementidentifier(reqid),self.getrequirementname(reqid))
+      
   # simple query 
-  def query(self,q):
+  def simplequery(self,q):
     rows, wordids = self.getmatchrows(q)
     if (rows != []) & (wordids != []):
       scores=self.getscoredlist(rows,wordids)
       rankedscores=sorted([(score,reqid) for (reqid,score) in scores.items( )],reverse=1)
-      for (score,reqid) in rankedscores[0:10]:
-        print '%f\t%d\t%s\t%s' % (score,reqid,self.getrequirementidentifier(reqid),self.getrequirementname(reqid))
+      return rankedscores
+      #for (score,reqid) in rankedscores[0:10]:
+      #  print '%f\t%d\t%s\t%s' % (score,reqid,self.getrequirementidentifier(reqid),self.getrequirementname(reqid))
 
   def normalizescores(self,scores,smallIsBetter=0):
     vsmall=0.00001 # Avoid division by zero errors

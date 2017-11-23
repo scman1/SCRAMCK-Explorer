@@ -74,6 +74,7 @@ def test4():
       
 # Next Steps:
 # SearchEngine:
+#   Modify query by also returning results which match any of the words in query string
 #   Generate neural network and test queries
 #   Add stemming to retrieve closely related terms
 #   Improve requirements class to facilitate access to requirements attributes
@@ -96,7 +97,7 @@ def test5():
   terms=['the metadata catalogue,', 'data harmonisation','to improve their interoperability so as to make their data as accessible and understandable as possible to others,']
   print(datetime.datetime.now().time())
   #terms=['to improve their interoperability so as to make their data as accessible and understandable as possible to others,']
-  for term in terms: terms.extend(term.split(' ')) if ' ' in term else None
+  #for term in terms: terms.extend(term.split(' ')) if ' ' in term else None
   for term in terms:
       print term
       e.query(term)
