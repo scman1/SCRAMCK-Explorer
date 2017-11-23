@@ -1,4 +1,5 @@
 import csv
+import string
 from sqlite3 import dbapi2 as sqlite
 
 # Create a list of words to ignore
@@ -18,9 +19,12 @@ class searcher:
     clauselist=''
     wordids=[]
     rows=[]
+
+    # remove punctuation from query string
+    plainquery = q.translate(string.maketrans("",""), string.punctuation)
     
     # Split the words by spaces
-    words=q.split(' ')
+    words=plainquery.split(' ')
     tablenumber=0
     for word in words:
       if word in ignorewords: continue
