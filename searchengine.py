@@ -25,9 +25,12 @@ class searcher:
     
     # Split the words by spaces
     words=plainquery.split(' ')
+
+    # remove ignore words
+    words=list(set(words)-set(ignorewords))
+    
     tablenumber=0
     for word in words:
-      if word in ignorewords: continue
       # Get the word ID
       wordrow=self.con.execute(
         "select rowid from wordlist where word='%s'" % word).fetchone( )
