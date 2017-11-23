@@ -90,8 +90,8 @@ class searcher:
              (1.0,self.pagerankscore(rows)),
              (1.0,self.linktextscore(rows,wordids))]
     for (weight,scores) in weights:
-      for url in totalscores:
-        totalscores[url]+=weight*scores[url]
+      for requirement in totalscores:
+        totalscores[requirement]+=weight*scores[requirement]
     return totalscores
   
   def getrequirementname(self,id):
@@ -101,12 +101,13 @@ class searcher:
   def getrequirementidentifier(self,id):
     return self.con.execute(
       "select requirementid from requirementlist where rowid=%d" % id).fetchone( )[0]
-  
+
+  # simple query 
   def query(self,q):
     rows, wordids = self.getmatchrows(q)
     if (rows != []) & (wordids != []):
       scores=self.getscoredlist(rows,wordids)
-      rankedscores=sorted([(score,url) for (url,score) in scores.items( )],reverse=1)
+      rankedscores=sorted([(score,reqid) for (reqid,score) in scores.items( )],reverse=1)
       for (score,reqid) in rankedscores[0:10]:
         print '%f\t%d\t%s\t%s' % (score,reqid,self.getrequirementidentifier(reqid),self.getrequirementname(reqid))
 
@@ -146,10 +147,10 @@ class searcher:
     return self.normalizescores(mindistance,smallIsBetter=1)
 
   def inboundlinkscore(self,rows):
-    uniqueurls=set([row[0] for row in rows])
+    uniquerequirements=set([row[0] for row in rows])
     inboundcount=dict([(u,self.con.execute( \
       'select count(*) from link where toid=%d' % u).fetchone( )[0]) \
-      for u in uniqueurls])
+      for u in uniquerequirements])
     return self.normalizescores(inboundcount)
 
   def pagerankscore(self,rows):
