@@ -1,4 +1,5 @@
 import csv
+import datetime
 import csvloader
 import searchengine
 # class for querying requirements database
@@ -20,22 +21,26 @@ if has_header:
 correct = 0
 incorrect = 0
 nomatch = 0
+#bad mappings
+badmapping={}
+print(datetime.datetime.now().time())
 for row in reader:
   # from each row extract reqid,req,reqdesc,and earsrecdesc
   # and add them as requirements
-  print "Query = %s;" % str(row[2])
+  #print "Query = %s;" % str(row[2])
   term=str(row[2])
   reqid=str(row[6])
   # Try to finf a match in ENVRI requirements
-  print term
+  #print term
   queryresult = searcher.query(term)
   # if match found add terms to NN
   if queryresult!=None and reqid in queryresult:
-    print "the mapping was correct add to nn"
+    #print "the mapping was correct add to nn"
     correct+=1
   elif queryresult!=None:
-    print "the mapping was incorrect"
+    #print "the mapping was incorrect"
     incorrect+=1
+    badmapping[str(row[0])+" "+str(row[3])]=row
   else:
     # if no match found ask if:
     # a) mapping to named requirement in input
@@ -43,7 +48,7 @@ for row in reader:
     # c) add as new requirement
     # d) ignore
     # e) end
-    print "no match found for query"#\n Options:"
+    #print "no match found for query"#\n Options:"
     nomatch+=1
 ##    print "a) force map to requirement %s" % reqid
 ##    print "b) map to another requirement"
@@ -63,3 +68,5 @@ print "correctly mapped terms: %i" % correct
 print "incorrectly mapped terms: %i" % incorrect
 print "no match found: %i" % nomatch
 
+print(datetime.datetime.now().time())
+print badmapping
