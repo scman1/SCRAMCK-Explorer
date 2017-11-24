@@ -103,6 +103,11 @@ def test5():
       results=e.query(term)
       print "Number of results %i"%len(results)
       print results
+      print "results for term %s: %i"% (term, len(results))
+      rankedscores=sorted([(items[1],items[0],reqid,items[2]) for (reqid,items) in results.items( )],reverse=1)
+      print rankedscores
+      for (score,reqid,requirementid,requirementdescription) in rankedscores[0:10]:
+        print '%f\t%d\t%s\t%s' % (score,reqid,requirementid,requirementdescription)
   print(datetime.datetime.now().time())    
       
 def build_nn():

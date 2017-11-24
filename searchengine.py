@@ -138,12 +138,7 @@ class searcher:
             scores.update({reqid:score})
           
     if scores != None:
-      print "results for term %s: %i"% (querystring, len(scores))
-      rankedscores=sorted([(score,reqid) for (reqid,score) in scores.items( )],reverse=1)
-      for (score,reqid) in rankedscores[0:10]:
-        print '%f\t%d\t%s\t%s' % (score,reqid,self.getrequirementidentifier(reqid),self.getrequirementname(reqid))
-      return {self.getrequirementidentifier(reqid):(reqid,score,self.getrequirementname(reqid)) for (score,reqid) in rankedscores}
-    
+      return {self.getrequirementidentifier(reqid):(reqid,score,self.getrequirementname(reqid)) for (reqid,score) in scores.items( )}    
 
       
   # simple query 
