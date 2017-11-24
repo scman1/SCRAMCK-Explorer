@@ -24,7 +24,7 @@ class searcher:
     plainquery = q.translate(string.maketrans("",""), string.punctuation)
     
     # Split the words by spaces
-    words=plainquery.split(' ')
+    words=plainquery.lower().split(' ')
 
     # remove ignore words
     words=list(set(words)-set(ignorewords))
@@ -111,8 +111,9 @@ class searcher:
     # extend the search to individual terms
     termscores = {}
     if ' ' in querystring:    
-      terms=querystring.split(' ')
-      
+      terms=querystring.lower().split(' ')
+      # remove ignore words
+      terms=list(set(terms)-set(ignorewords))
       # query each term in the list of individual words    
       for term in terms:
         wordscores = self.simplequery(term)
@@ -136,11 +137,13 @@ class searcher:
           if not reqid in scores:
             scores.update({reqid:score})
           
-    if scores != None: 
+    if scores != None:
       print "results for term %s: %i"% (querystring, len(scores))
       rankedscores=sorted([(score,reqid) for (reqid,score) in scores.items( )],reverse=1)
       for (score,reqid) in rankedscores[0:10]:
         print '%f\t%d\t%s\t%s' % (score,reqid,self.getrequirementidentifier(reqid),self.getrequirementname(reqid))
+      return {self.getrequirementidentifier(reqid):(reqid,score,self.getrequirementname(reqid)) for (score,reqid) in rankedscores}
+    
 
       
   # simple query 
