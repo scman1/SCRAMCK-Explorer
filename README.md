@@ -3,7 +3,7 @@ Prototype RE Tool for Requirements Management
 
 Current status: 
 
-  Searching a term list like the following guives the results below
+  Searching a term list like the following gives the results below
      terms=['metadata catalogue','metadata', 'catalogue', "cataloguing", "data"]
   
     metadata catalogue "exact match top"
@@ -39,7 +39,6 @@ Current status:
         
 Next Steps:
   SearchEngine:
-
     Generate neural network and test queries
     Add stemming to retrieve closely related terms
     Improve requirements class to facilitate access to requirements attributes
@@ -48,14 +47,14 @@ Next Steps:
 
   ENVRIplus requirements
 
-    use them as queries to the current Requirements base to check how well we did
+    use them as queries to the current Requirements base to check manual mapping
     use them to expand the CK spaces
-      standardise them as EARS
-      add them to the requirements base indexing
-   ***use their manual alignments to train the nn. Really relevant. Also using the NN to map to OIL-E and RM
+    use manual mappings to train the nn. Really relevant. 
+
+  Mapping to ENVRI RM and OIL-E
+    use search engine to map to OIL-E and RM
 
   UI
-
     Create django ui to submit queries
     Use requirement IDs as links to display results
     where appropriate, rewrite as MVC 

@@ -94,7 +94,7 @@ def test4():
 def test5():
   # This search has only one term and sends a search request for every separate word in the query
   #ignorewords=set(['the','of','to','and','a','in','is','it'])  
-  terms=['the metadata catalogue,',' security ', 'data harmonisation','to improve their interoperability so as to make their data as accessible and understandable as possible to others,']
+  terms=['the metadata catalogue,',' security ', 'data harmonisation','to improve their interoperability so as to make their data as accessible and understandable as possible to others,','provenance']
   print(datetime.datetime.now().time())
   #terms=['to improve their interoperability so as to make their data as accessible and understandable as possible to others,']
   #for term in terms: terms.extend(term.split(' ')) if ' ' in term else None
@@ -114,7 +114,9 @@ def build_nn():
     import nn
     mynet=nn.searchnet('nn.db')
     mynet.maketables( )
+    #word ids
     wWorld,wRiver,wBank =101,102,103
+    #requirement ids
     uWorldBank,uRiver,uEarth =201,202,203
     mynet.generatehiddennode([wWorld,wBank],[uWorldBank,uRiver,uEarth])
     for c in mynet.con.execute('select * from wordhidden'): print c
@@ -129,6 +131,35 @@ def test6():
     x = mynet.getresult([wWorld,wBank],[uWorldBank,uRiver,uEarth])
     print x
 
+def test7():
+    import nn
+    #static word ids for testing
+    wWorld,wRiver,wBank =101,102,103
+    uWorldBank,uRiver,uEarth =201,202,203
+    mynet=nn.searchnet('nn.db')
+    mynet.trainquery([wWorld,wBank],[uWorldBank,uRiver,uEarth], uWorldBank)
+    x = mynet.getresult([wWorld,wBank],[uWorldBank,uRiver,uEarth])
+    print x
+
+def test8():
+    import nn
+    mynet=nn.searchnet('nn.db')
+    #static word ids for testing
+    wWorld,wRiver,wBank =101,102,103
+    uWorldBank,uRiver,uEarth =201,202,203
+    allurls=[uWorldBank,uRiver,uEarth]
+    for i in range(30):
+         mynet.trainquery([wWorld,wBank],allurls, uWorldBank)
+         mynet.trainquery([wRiver,wBank],allurls, uRiver)
+         mynet.trainquery([wWorld],allurls, uEarth)
+    x = mynet.getresult([wWorld,wBank],allurls)
+    print x
+    x = mynet.getresult([wRiver,wBank],allurls)
+    print x
+    x = mynet.getresult([wBank],allurls)    
+    print x
+
+
 #print ("**********TEST 1***********")
 #test1()
 
@@ -139,11 +170,13 @@ def test6():
 #test3()
 
 print ("**********TEST 4***********")
-#test4()
+test4()
 test5()
 
 ##print ("**********Build Neural Network***********")
 ##build_nn()
 
-##print ("**********TEST 6 NN***********")
-##test5()
+#print ("**********TEST 6 NN***********")
+#test6()
+#test7()
+#test8()

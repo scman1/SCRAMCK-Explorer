@@ -1,5 +1,5 @@
 import csv
-from BeautifulSoup import *
+import re
 from sqlite3 import dbapi2 as sqlite
 
 # Create a list of words to ignore
@@ -67,7 +67,8 @@ class csvloader:
       self.addlinkref(row[6], row[1], row[2])
       print 'Indexing '+ row[1] + " " + row[2]
       self.dbcommit( )
-      
+
+  
   # Index an individual requirement
   def addrequirement(self,requirementid,requirement,description,earsdescription):
     if self.isindexed(requirementid): return
@@ -212,4 +213,22 @@ class csvloader:
     self.dbcommit( )
 
 
+#######################################################
+# Add new words if needed to the ones for the existing requirement lists
+# no new requirements will be added just the new words needed for training
+# the nn
+#######################################################
+      
+  # gets a list of ids for a search sentence
+  # getentry will add the workd if it is not already in the DB
+  def getwordids(self,searchwords):
+    words=self.separatewords(searchwords) 
+    idlist=[]
+    for i in range(len(words)):
+      word=words[i]
+      if word in ignorewords: continue
+      idlist.append(self.getentryid('wordlist','word',word))
+
+    self.dbcommit( )
+    return idlist
 

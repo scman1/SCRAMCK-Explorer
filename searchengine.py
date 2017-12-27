@@ -1,11 +1,13 @@
 import csv
 import string
 from sqlite3 import dbapi2 as sqlite
+import nn
 
 # Create a list of words to ignore
 ignorewords=set(['the','of','to','and','a','in','is','it', 'their', 'so', 'as'])
   
 class searcher:
+  mynet=nn.searchnet('nn.db')
   def __init__(self,dbname):
     self.con=sqlite.connect(dbname)
     
